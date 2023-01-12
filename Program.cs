@@ -25,7 +25,7 @@ static IEdmModel GetEdmModel()
 
 FirebaseApp.Create(new AppOptions
 {
-    Credential = GoogleCredential.FromJson(Configuration["GoogleCredential"])
+    Credential = GoogleCredential.FromJson(JsonSerializer.Serialize(Configuration.GetSection("GoogleCredential").Get<Dictionary<string, string>>()))
 });
 
 
